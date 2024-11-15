@@ -13,3 +13,7 @@ config_version=5
 config/name="Elevator-Pitch"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Elevator="*res://core/scripts/elevator.gd"
