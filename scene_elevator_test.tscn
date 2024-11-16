@@ -1,52 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=6 format=3 uid="uid://b63pbsjgqmtr2"]
 
-[ext_resource type="Script" path="res://core/scripts/camera_controller.gd" id="1_7qeaq"]
-[ext_resource type="Script" path="res://core/scripts/interactor.gd" id="2_xeva2"]
-[ext_resource type="Script" path="res://elevator/scripts/crank.gd" id="3_nkyu6"]
-[ext_resource type="Script" path="res://core/scripts/ui_charge.gd" id="4_0rnvb"]
-[ext_resource type="Shader" path="res://core/shader/outline.gdshader" id="4_x641m"]
+[ext_resource type="PackedScene" uid="uid://bi8di2s6f4vcr" path="res://elevator/scenes/blockout_elevator.tscn" id="1_jxdub"]
+[ext_resource type="PackedScene" uid="uid://bi5ww1gtcxmf3" path="res://elevator/scenes/main_camera.tscn" id="2_6blki"]
+[ext_resource type="PackedScene" uid="uid://br26srymvf3dg" path="res://elevator/scenes/world_environment.tscn" id="3_lr5sk"]
+[ext_resource type="PackedScene" uid="uid://ditlgrotff0a2" path="res://elevator/scenes/crank.tscn" id="4_otdx4"]
+[ext_resource type="PackedScene" uid="uid://cemfkyb0f4ip1" path="res://elevator/scenes/ui_label_debug_charge.tscn" id="5_t11yy"]
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sfjg6"]
-albedo_color = Color(0.43, 0.386355, 0.3397, 1)
+[node name="World" type="Node3D"]
 
-[sub_resource type="Environment" id="Environment_ofwjm"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.0
+[node name="CSGBox3D" parent="." instance=ExtResource("1_jxdub")]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_p27qm"]
+[node name="MainCamera" parent="." instance=ExtResource("2_6blki")]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oc3qn"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfxfm"]
-render_priority = 0
-shader = ExtResource("4_x641m")
-shader_parameter/outline_color = Color(0.9, 0.51, 0, 1)
-shader_parameter/outline_width = 2.0
-shader_parameter/constant_width = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78714"]
-next_pass = SubResource("ShaderMaterial_bfxfm")
-rim = 0.16
-rim_tint = 1.0
-
-[node name="Node3D" type="Node3D"]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-visible = false
-flip_faces = true
-material = SubResource("ORMMaterial3D_sfjg6")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325404)
-script = ExtResource("1_7qeaq")
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-script = ExtResource("2_xeva2")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ofwjm")
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_lr5sk")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.898131, 0)
@@ -55,17 +21,7 @@ light_indirect_energy = 4.415
 spot_range = 2.492
 spot_angle = 84.1
 
-[node name="Button" type="StaticBody3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.559975, -0.0642633, 0.122904)
-script = ExtResource("3_nkyu6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
-shape = SubResource("BoxShape3D_p27qm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_oc3qn")
-surface_material_override/0 = SubResource("StandardMaterial3D_78714")
+[node name="Crank" parent="." instance=ExtResource("4_otdx4")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -75,9 +31,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="UI/Control"]
+[node name="Label" parent="UI/Control" instance=ExtResource("5_t11yy")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "charge: 00"
-script = ExtResource("4_0rnvb")

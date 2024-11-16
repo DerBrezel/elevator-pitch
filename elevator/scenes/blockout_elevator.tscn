@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi8di2s6f4vcr"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sfjg6"]
+albedo_color = Color(0.43, 0.386355, 0.3397, 1)
+
+[node name="CSGBox3D" type="CSGBox3D"]
+visible = false
+flip_faces = true
+material = SubResource("ORMMaterial3D_sfjg6")

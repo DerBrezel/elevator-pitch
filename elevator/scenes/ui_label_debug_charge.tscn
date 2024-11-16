@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cemfkyb0f4ip1"]
+
+[ext_resource type="Script" path="res://core/scripts/ui_charge.gd" id="1_ynt8d"]
+
+[node name="Label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "charge: 00"
+script = ExtResource("1_ynt8d")
