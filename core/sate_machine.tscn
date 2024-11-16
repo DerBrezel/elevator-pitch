@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmi7jlbkl0c07"]
+
+[ext_resource type="Script" path="res://core/scripts/sate_machine.gd" id="1_f0ed1"]
+[ext_resource type="Script" path="res://core/scripts/state_move_down.gd" id="2_dq7ei"]
+[ext_resource type="Script" path="res://core/scripts/state_enter.gd" id="2_h6gli"]
+[ext_resource type="Script" path="res://core/scripts/state_crank.gd" id="4_skdpm"]
+[ext_resource type="Script" path="res://core/scripts/state_move_up.gd" id="5_lht85"]
+[ext_resource type="Script" path="res://core/scripts/state_walk_out.gd" id="6_4qgsl"]
+[ext_resource type="Script" path="res://core/scripts/state_complain.gd" id="7_7nqa7"]
+
+[node name="SateMachine" type="Node" node_paths=PackedStringArray("entry_state")]
+script = ExtResource("1_f0ed1")
+entry_state = NodePath("Enter")
+
+[node name="Enter" type="Node" parent="."]
+script = ExtResource("2_h6gli")
+
+[node name="Crank" type="Node" parent="."]
+script = ExtResource("4_skdpm")
+
+[node name="MoveUp" type="Node" parent="."]
+script = ExtResource("5_lht85")
+
+[node name="MoveDown" type="Node" parent="."]
+script = ExtResource("6_4qgsl")
+
+[node name="WalkOut" type="Node" parent="."]
+script = ExtResource("2_dq7ei")
+
+[node name="Complain" type="Node" parent="."]
+script = ExtResource("7_7nqa7")

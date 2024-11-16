@@ -1,10 +1,21 @@
 extends RayCast3D
 
-@onready var mesh: MeshInstance3D = $"../../Crank/MeshInstance3D"
-
 var current_target : Node
+var is_active : bool 
+
+func _ready() -> void:
+	Elevator.on_state_change.connect(handle_state_change)
+
+func handle_state_change(state : State):
+	if state is CrankState:
+		is_active = true
+	else:
+		clear_highlight()
+		is_active = false
 
 func _process(delta):
+	if not is_active:
+		return
 	# Continuously check for an object in the center of the screen
 	if is_colliding():
 		var target = get_collider()
@@ -20,10 +31,7 @@ func _process(delta):
 				interact_with_target(target)
 
 	else:
-		if current_target != null:
-			if current_target.has_method("clear_highlight"):
-				current_target.clear_highlight()
-				current_target = null
+		clear_highlight()
 		print("No object in the center.")
 
 func interact_with_target(target):
@@ -31,3 +39,9 @@ func interact_with_target(target):
 		return
 	# Call the interact method on the target (if defined)
 	target.interact()
+
+func clear_highlight():
+	if current_target != null:
+			if current_target.has_method("clear_highlight"):
+				current_target.clear_highlight()
+				current_target = null
