@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dlv7rajqjo8ss"]
+
+[resource]
+rim = 0.16
+rim_tint = 1.0
