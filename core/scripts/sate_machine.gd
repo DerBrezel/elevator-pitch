@@ -13,16 +13,16 @@ func _ready() -> void:
 			states[child.name] = child
 			
 	Elevator.machine = self
-	change_state(entry_state)
+	change_state(entry_state.name)
 
 func _process(delta: float) -> void:
 	if current_state != null:
 		current_state.update(delta)
 
-func change_state(state : State):
+func change_state(state : String):
 	if current_state != null:
 		current_state.exit()
 	
-	current_state = state
+	current_state = states[state]
 	current_state.enter()
-	Elevator.on_state_change.emit(current_state)
+	Elevator.on_state_change.emit(current_state)	

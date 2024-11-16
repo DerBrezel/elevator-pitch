@@ -9,7 +9,7 @@ func enter():
 
 func update(delta: float) -> void:
 	if is_finished:
-		machine.change_state(machine.states["Crank"])
+		machine.change_state("Crank")
 	
 	
 func exit():

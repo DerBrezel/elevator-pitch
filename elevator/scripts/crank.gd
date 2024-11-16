@@ -19,7 +19,10 @@ func start_interact():
 	is_interacting = true
 	
 func stop_interact():
+	if not is_interacting:
+		return
 	is_interacting = false
+	Elevator.machine.change_state("MoveUp")
 
 func highlight():
 	mesh_highlight.visible = true
