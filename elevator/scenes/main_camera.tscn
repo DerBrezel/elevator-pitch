@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi5ww1gtcxmf3"]
+[gd_scene load_steps=7 format=3 uid="uid://bi5ww1gtcxmf3"]
 
 [ext_resource type="Script" path="res://core/scripts/camera_controller.gd" id="1_jqrbo"]
 [ext_resource type="Script" path="res://core/scripts/interactor.gd" id="2_r5ob3"]
@@ -6,13 +6,16 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_wq1jx"]
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mayob"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sxnyc"]
 render_priority = 0
 shader = ExtResource("3_67na1")
-shader_parameter/affine_mapping = false
+shader_parameter/affine_mapping = true
 shader_parameter/alpha_scissor = 0.5
 shader_parameter/jitter = 0.25
 shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = SubResource("NoiseTexture2D_mayob")
 
 [node name="Camera3D" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325404)

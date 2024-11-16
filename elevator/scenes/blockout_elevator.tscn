@@ -1,9 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi8di2s6f4vcr"]
+[gd_scene format=3 uid="uid://bi8di2s6f4vcr"]
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sfjg6"]
-albedo_color = Color(0.43, 0.386355, 0.3397, 1)
+[node name="CSGBox3D" type="Node3D"]
 
-[node name="CSGBox3D" type="CSGBox3D"]
-visible = false
-flip_faces = true
-material = SubResource("ORMMaterial3D_sfjg6")
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13652, 0, 0)
+size = Vector3(1, 1, 2)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08314, -0.0826471, -0.125706)
+size = Vector3(1, 1, 2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.111089, 0, 0.983819)
+size = Vector3(3, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.598, 0, -1.07584)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0255482, 0.921261, -0.325465)
+size = Vector3(3, 1, 3)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0255482, -0.953414, -0.325465)
+size = Vector3(3, 1, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487756, 0, -1.07584)

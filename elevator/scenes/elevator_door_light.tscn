@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cynltp4ml51my"]
+
+[ext_resource type="Script" path="res://elevator/scripts/elevator_door_light.gd" id="1_skfv3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ny02b"]
+emission_enabled = true
+emission = Color(0.942101, 0.749559, 0.619229, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fg6h1"]
+material = SubResource("StandardMaterial3D_ny02b")
+
+[node name="ElevatorDoorLight" type="Node3D"]
+script = ExtResource("1_skfv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_fg6h1")

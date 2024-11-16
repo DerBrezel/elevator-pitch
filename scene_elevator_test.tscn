@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=7 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="PackedScene" uid="uid://bi8di2s6f4vcr" path="res://elevator/scenes/blockout_elevator.tscn" id="1_jxdub"]
 [ext_resource type="PackedScene" uid="uid://bi5ww1gtcxmf3" path="res://elevator/scenes/main_camera.tscn" id="2_6blki"]
 [ext_resource type="PackedScene" uid="uid://br26srymvf3dg" path="res://elevator/scenes/world_environment.tscn" id="3_lr5sk"]
 [ext_resource type="PackedScene" uid="uid://ditlgrotff0a2" path="res://elevator/scenes/crank.tscn" id="4_otdx4"]
 [ext_resource type="PackedScene" uid="uid://cemfkyb0f4ip1" path="res://elevator/scenes/ui_label_debug_charge.tscn" id="5_t11yy"]
+[ext_resource type="PackedScene" uid="uid://cynltp4ml51my" path="res://elevator/scenes/elevator_door_light.tscn" id="6_1465r"]
 
 [node name="World" type="Node3D"]
 
@@ -33,3 +34,6 @@ offset_bottom = 40.0
 
 [node name="Label" parent="UI/Control" instance=ExtResource("5_t11yy")]
 layout_mode = 0
+
+[node name="ElevatorDoorLight" parent="." instance=ExtResource("6_1465r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823034, 0, -2.01636)
