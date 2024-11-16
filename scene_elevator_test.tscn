@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=12 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="Script" path="res://core/scripts/camera_controller.gd" id="1_7qeaq"]
 [ext_resource type="Script" path="res://core/scripts/interactor.gd" id="2_xeva2"]
 [ext_resource type="Script" path="res://elevator/scripts/crank.gd" id="3_nkyu6"]
 [ext_resource type="Script" path="res://core/scripts/ui_charge.gd" id="4_0rnvb"]
+[ext_resource type="Shader" path="res://core/shader/outline.gdshader" id="4_x641m"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sfjg6"]
 albedo_color = Color(0.43, 0.386355, 0.3397, 1)
@@ -17,13 +18,22 @@ ambient_light_energy = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_oc3qn"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bfxfm"]
+render_priority = 0
+shader = ExtResource("4_x641m")
+shader_parameter/outline_color = Color(0.9, 0.51, 0, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/constant_width = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78714"]
+next_pass = SubResource("ShaderMaterial_bfxfm")
 rim = 0.16
 rim_tint = 1.0
 
 [node name="Node3D" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
 flip_faces = true
 material = SubResource("ORMMaterial3D_sfjg6")
 
@@ -53,6 +63,7 @@ script = ExtResource("3_nkyu6")
 shape = SubResource("BoxShape3D_p27qm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_oc3qn")
 surface_material_override/0 = SubResource("StandardMaterial3D_78714")
 
