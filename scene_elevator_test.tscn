@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=11 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="PackedScene" uid="uid://bmi7jlbkl0c07" path="res://core/sate_machine.tscn" id="1_4hve4"]
 [ext_resource type="Script" path="res://core/scripts/debug_input.gd" id="1_63vh8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cemfkyb0f4ip1" path="res://elevator/scenes/ui_label_debug_charge.tscn" id="5_t11yy"]
 [ext_resource type="PackedScene" uid="uid://cynltp4ml51my" path="res://elevator/scenes/elevator_door_light.tscn" id="6_1465r"]
 [ext_resource type="Script" path="res://elevator/scenes/ui_label_debug_state.gd" id="8_wlwx0"]
+[ext_resource type="PackedScene" uid="uid://cvmylqt8wdnhd" path="res://elevator/elevator_asset.tscn" id="10_x0dac"]
 
 [node name="World" type="Node3D"]
 
@@ -19,8 +20,10 @@ machine = NodePath("../SateMachine")
 [node name="SateMachine" parent="." instance=ExtResource("1_4hve4")]
 
 [node name="CSGBox3D" parent="." instance=ExtResource("1_jxdub")]
+visible = false
 
 [node name="MainCamera" parent="." instance=ExtResource("2_6blki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635, 0.66)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_lr5sk")]
 
@@ -32,7 +35,7 @@ spot_range = 2.492
 spot_angle = 84.1
 
 [node name="Crank" parent="." instance=ExtResource("4_otdx4")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.588187, 0, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.702997, 0.542868, 0.635082)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -55,4 +58,7 @@ text = "state:"
 script = ExtResource("8_wlwx0")
 
 [node name="ElevatorDoorLight" parent="." instance=ExtResource("6_1465r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823034, 0, -2.01636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287194, 0.591241, -1.05647)
+
+[node name="ElevatorAsset" parent="." instance=ExtResource("10_x0dac")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.501, 0.63)
