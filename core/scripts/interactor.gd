@@ -27,18 +27,27 @@ func _process(delta):
 					target.highlight()
 			print("Looking at:", target.name)
 			# Check if the target has a method or script to interact with
-			if Input.is_action_pressed("interact"):
-				interact_with_target(target)
-
+			if Input.is_action_just_pressed("interact"):
+				start_interact_with_target(target)
+			if Input.is_action_just_released("interact"):
+				stop_interact_with_target(target)
+		
 	else:
-		clear_highlight()
-		print("No object in the center.")
+		if current_target:
+			stop_interact_with_target(current_target)
+			print("No object in the center.")
 
-func interact_with_target(target):
-	if not target.has_method("interact"):
+func start_interact_with_target(target):
+	if not target.has_method("start_interact"):
 		return
-	# Call the interact method on the target (if defined)
-	target.interact()
+	target.start_interact()
+	
+func stop_interact_with_target(target):
+	if not target.has_method("stop_interact"):
+		return
+	target.stop_interact()
+	clear_highlight()
+
 
 func clear_highlight():
 	if current_target != null:

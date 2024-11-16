@@ -9,6 +9,7 @@ var states = {}
 func _ready() -> void:
 	for child in get_children():
 		if child is State:
+			child.machine = self
 			states[child.name] = child
 			
 	Elevator.machine = self

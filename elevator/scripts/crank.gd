@@ -2,11 +2,24 @@ extends StaticBody3D
 
 @export var mesh_highlight : MeshInstance3D
 
+var is_interacting : bool
+
 func _ready() -> void:
 	mesh_highlight.visible = false
 
-func interact():
+func _physics_process(delta: float) -> void:
+	if not is_interacting:
+		return
 	Elevator.add_charge(1.0)
+
+func interact():
+	pass
+	
+func start_interact():
+	is_interacting = true
+	
+func stop_interact():
+	is_interacting = false
 
 func highlight():
 	mesh_highlight.visible = true
