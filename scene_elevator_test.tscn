@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=10 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="Script" path="res://core/scripts/camera_controller.gd" id="1_7qeaq"]
 [ext_resource type="Script" path="res://core/scripts/interactor.gd" id="2_xeva2"]
@@ -16,6 +16,10 @@ ambient_light_energy = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_p27qm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_oc3qn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78714"]
+rim = 0.16
+rim_tint = 1.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -50,6 +54,7 @@ shape = SubResource("BoxShape3D_p27qm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
 mesh = SubResource("BoxMesh_oc3qn")
+surface_material_override/0 = SubResource("StandardMaterial3D_78714")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
