@@ -1,6 +1,6 @@
 extends RayCast3D
 
-@onready var mesh: MeshInstance3D = $"../../Button/MeshInstance3D"
+@onready var mesh: MeshInstance3D = $"../../Crank/MeshInstance3D"
 
 var current_target : Node
 
