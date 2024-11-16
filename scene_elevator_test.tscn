@@ -23,6 +23,7 @@ spot_range = 2.492
 spot_angle = 84.1
 
 [node name="Crank" parent="." instance=ExtResource("4_otdx4")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.588187, 0, 0)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
