@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=9 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="Script" path="res://core/scripts/camera_controller.gd" id="1_7qeaq"]
+[ext_resource type="Script" path="res://core/scripts/interactor.gd" id="2_xeva2"]
+[ext_resource type="Script" path="res://elevator/scripts/crank.gd" id="3_nkyu6"]
+[ext_resource type="Script" path="res://core/scripts/ui_charge.gd" id="4_0rnvb"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_sfjg6"]
 albedo_color = Color(0.43, 0.386355, 0.3397, 1)
@@ -9,6 +12,10 @@ albedo_color = Color(0.43, 0.386355, 0.3397, 1)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p27qm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oc3qn"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -20,6 +27,10 @@ material = SubResource("ORMMaterial3D_sfjg6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.325404)
 script = ExtResource("1_7qeaq")
 
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("2_xeva2")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ofwjm")
 
@@ -29,3 +40,28 @@ light_color = Color(1, 0.953333, 0.9, 1)
 light_indirect_energy = 4.415
 spot_range = 2.492
 spot_angle = 84.1
+
+[node name="Button" type="StaticBody3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.559975, -0.0642633, 0.122904)
+script = ExtResource("3_nkyu6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+shape = SubResource("BoxShape3D_p27qm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
+mesh = SubResource("BoxMesh_oc3qn")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "charge: 00"
+script = ExtResource("4_0rnvb")
