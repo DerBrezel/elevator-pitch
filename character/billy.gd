@@ -18,5 +18,10 @@ func _process(delta: float) -> void:
 		dingus_2.play("dingus_walk")
 		#await animation_player.animation_finished
 		#Elevator.machine.change_state("Crank")
+	if Elevator.machine.current_state.name == "WalkOut":
+		hasArrived = true
+		animation_player.play_backwards("enter")
+		dingus_2.play("dingus_walk")
+		await animation_player.animation_finished
 	if Elevator.machine.current_state.name != "Enter" and hasArrived:
 		dingus_2.play("dingus_idle")

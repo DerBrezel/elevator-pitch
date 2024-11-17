@@ -14,7 +14,7 @@ func update(delta: float) -> void:
 		if Elevator.charge/10 == Elevator.goal:
 			machine.change_state("Enter")
 		else:
-			machine.change_state("Crank")
+			machine.change_state("Enter")
 	
 	
 func exit():

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cvmylqt8wdnhd" path="res://elevator/elevator_asset.tscn" id="10_x0dac"]
 [ext_resource type="AudioStream" uid="uid://bbau3vr36vxhc" path="res://assets/Brazilian Bossa Nova Jazz Podcast.mp3" id="11_hmmat"]
 [ext_resource type="PackedScene" uid="uid://dgx6gq6aww028" path="res://character/billy.tscn" id="12_uog7s"]
-[ext_resource type="PackedScene" uid="uid://bweadmh82kswf" path="res://elevator/ui_world_charge.tscn" id="13_vbhd3"]
+[ext_resource type="PackedScene" path="res://elevator/ui_world_charge.tscn" id="13_vbhd3"]
 
 [node name="World" type="Node3D"]
 
