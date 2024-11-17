@@ -5,6 +5,7 @@ var is_finished : bool
 
 func enter():
 	is_finished = false
+	Elevator.charge = 0.0
 	pass
 
 func update(delta: float) -> void:

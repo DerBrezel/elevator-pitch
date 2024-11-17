@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=18 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="PackedScene" uid="uid://bmi7jlbkl0c07" path="res://core/sate_machine.tscn" id="1_4hve4"]
 [ext_resource type="Script" path="res://core/scripts/debug_input.gd" id="1_63vh8"]
@@ -14,6 +14,20 @@
 [ext_resource type="PackedScene" uid="uid://dgx6gq6aww028" path="res://character/billy.tscn" id="12_uog7s"]
 [ext_resource type="PackedScene" uid="uid://bweadmh82kswf" path="res://elevator/ui_world_charge.tscn" id="13_vbhd3"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ps1sc"]
+font_size = 96
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mp6bw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rbnk1"]
+viewport_path = NodePath("UIWorldCharge2/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwqki"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_rbnk1")
+
 [node name="World" type="Node3D"]
 
 [node name="DebugInput" type="Node" parent="." node_paths=PackedStringArray("machine")]
@@ -21,6 +35,12 @@ script = ExtResource("1_63vh8")
 machine = NodePath("../SateMachine")
 
 [node name="SateMachine" parent="." instance=ExtResource("1_4hve4")]
+
+[node name="MoveUp" parent="SateMachine" index="2" node_paths=PackedStringArray("label")]
+label = NodePath("../../UIWorldCharge2/SubViewport/Control/Label2")
+
+[node name="MoveDown" parent="SateMachine" index="3" node_paths=PackedStringArray("label")]
+label = NodePath("../../UIWorldCharge2/SubViewport/Control/Label2")
 
 [node name="CSGBox3D" parent="." instance=ExtResource("1_jxdub")]
 visible = false
@@ -69,3 +89,41 @@ autoplay = true
 
 [node name="UIWorldCharge" parent="." instance=ExtResource("13_vbhd3")]
 transform = Transform3D(-2.38227e-08, 0, -0.545, 0, 0.545, 0, 0.545, 0, -2.38227e-08, 0.935623, 0.680881, 0.232188)
+
+[node name="UIWorldCharge2" type="Node3D" parent="."]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 0.640787, 0.886476, -0.251832)
+
+[node name="SubViewport" type="SubViewport" parent="UIWorldCharge2"]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="UIWorldCharge2/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" parent="UIWorldCharge2/SubViewport/Control" instance=ExtResource("5_t11yy")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+label_settings = SubResource("LabelSettings_ps1sc")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UIWorldCharge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0519639, 0)
+mesh = SubResource("QuadMesh_mp6bw")
+surface_material_override/0 = SubResource("StandardMaterial3D_bwqki")
+
+[editable path="SateMachine"]

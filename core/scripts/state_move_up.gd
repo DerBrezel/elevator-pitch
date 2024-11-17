@@ -2,6 +2,9 @@ extends State
 class_name MoveUpState
 
 var is_finished : bool
+@export var label : Label
+
+var duration : float
 
 func enter():
 	is_finished = false
@@ -15,6 +18,9 @@ func update(delta: float) -> void:
 			machine.change_state("WalkOut")
 		else:
 			machine.change_state("WalkOut")
+	else:
+		duration += delta
+		label.text = str(int(duration))
 	
 	
 func exit():

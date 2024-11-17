@@ -9,10 +9,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Elevator.machine.current_state.name == "MoveUp":
-		speed = -0.1
+		speed = -0.3
+		visible = true
 	elif Elevator.machine.current_state.name == "MoveDown":
-		speed = 0.1
+		visible = true
 	else:
+		visible = false
 		return
 	position.y += speed
 	position.y = wrapf(position.y, -10, 10)
