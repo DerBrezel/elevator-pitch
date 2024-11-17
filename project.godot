@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="Elevator-Pitch"
-run/main_scene="res://scene_elevator_test.tscn"
+run/main_scene="res://core/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0, 0.731811, 0.652335, 1)
+boot_splash/image="res://assets/Screenshot 2024-11-17 at 14.50.18.png"
 config/icon="res://icon.svg"
 
 [autoload]
