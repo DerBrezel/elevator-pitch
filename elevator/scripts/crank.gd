@@ -3,6 +3,8 @@ extends StaticBody3D
 @export var mesh_highlight : MeshInstance3D
 @export var anim : AnimationPlayer
 @export var wheel : Node3D
+@export var cam : Camera3D
+@export var crank_fov : float = 50.0
 
 var is_interacting : bool
 
@@ -20,6 +22,7 @@ func interact():
 func start_interact():
 	is_interacting = true
 	anim.play("crank")
+	cam.fov = crank_fov
 	
 func stop_interact():
 	if not is_interacting:
@@ -27,10 +30,12 @@ func stop_interact():
 	is_interacting = false
 	Elevator.machine.change_state("MoveUp")
 	anim.stop(true)
+	cam.fov = 75.0
 
 func highlight():
 	#mesh_highlight.visible = true
 	wheel.scale = Vector3(1.1, 1.1, 1.1)
+	
 	
 func clear_highlight():
 	#mesh_highlight.visible = false
