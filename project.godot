@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 Elevator="*res://core/scripts/elevator.gd"
 HelperFunctions="*res://core/scripts/helper_functions.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [input]
 
 interact={

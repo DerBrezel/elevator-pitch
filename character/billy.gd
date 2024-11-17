@@ -18,10 +18,11 @@ func _process(delta: float) -> void:
 		dingus_2.play("dingus_walk")
 		#await animation_player.animation_finished
 		#Elevator.machine.change_state("Crank")
-	if Elevator.machine.current_state.name == "WalkOut":
+	elif Elevator.machine.current_state.name == "WalkOut" and not hasArrived:
 		hasArrived = true
 		animation_player.play_backwards("enter")
 		dingus_2.play("dingus_walk")
 		await animation_player.animation_finished
-	if Elevator.machine.current_state.name != "Enter" and hasArrived:
+	elif hasArrived and Elevator.machine.current_state.name != "Enter" and Elevator.machine.current_state.name != "WalkOut" :
 		dingus_2.play("dingus_idle")
+		hasArrived = false
