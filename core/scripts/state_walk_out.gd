@@ -24,4 +24,5 @@ func update(delta: float) -> void:
 	
 	
 func exit():
+	duration = 0.0
 	pass
