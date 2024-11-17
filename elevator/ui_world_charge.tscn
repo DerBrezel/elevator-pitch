@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bweadmh82kswf"]
+
+[ext_resource type="PackedScene" uid="uid://cemfkyb0f4ip1" path="res://elevator/scenes/ui_label_debug_charge.tscn" id="1_o035r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4amkt"]
+font_size = 64
+
+[sub_resource type="QuadMesh" id="QuadMesh_mp6bw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7w1jp"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_63mk1"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_7w1jp")
+
+[node name="UIWorldCharge" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" parent="SubViewport/Control" instance=ExtResource("1_o035r")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+label_settings = SubResource("LabelSettings_4amkt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_mp6bw")
+surface_material_override/0 = SubResource("StandardMaterial3D_63mk1")
