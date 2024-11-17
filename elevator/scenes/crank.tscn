@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ditlgrotff0a2"]
+[gd_scene load_steps=8 format=3 uid="uid://ditlgrotff0a2"]
 
 [ext_resource type="Script" path="res://elevator/scripts/crank.gd" id="1_4goc8"]
 [ext_resource type="Material" uid="uid://dlv7rajqjo8ss" path="res://elevator/material_crank_default.tres" id="3_w4lhc"]
 [ext_resource type="Material" uid="uid://cbr07nlj6bn87" path="res://elevator/material_crank_default_highlighted.tres" id="4_124pd"]
+[ext_resource type="PackedScene" uid="uid://bseyy16mkk7x8" path="res://elevator/scenes/steering_wheel.tscn" id="4_gf1v2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p27qm"]
 
@@ -11,10 +12,12 @@
 [sub_resource type="BoxMesh" id="BoxMesh_t0lku"]
 flip_faces = true
 
-[node name="Crank" type="StaticBody3D" node_paths=PackedStringArray("mesh_highlight")]
+[node name="Crank" type="StaticBody3D" node_paths=PackedStringArray("mesh_highlight", "anim", "wheel")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 script = ExtResource("1_4goc8")
 mesh_highlight = NodePath("MeshHighlight")
+anim = NodePath("SteeringWheel/AnimationPlayer")
+wheel = NodePath("SteeringWheel")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_p27qm")
@@ -30,3 +33,8 @@ visible = false
 layers = 2
 mesh = SubResource("BoxMesh_t0lku")
 surface_material_override/0 = ExtResource("4_124pd")
+
+[node name="SteeringWheel" parent="." instance=ExtResource("4_gf1v2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[editable path="SteeringWheel"]

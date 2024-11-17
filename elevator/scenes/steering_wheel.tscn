@@ -42,6 +42,7 @@ _data = {
 [node name="SteeringWheel" type="Node3D"]
 
 [node name="Wheel" parent="." instance=ExtResource("1_bc80q")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
