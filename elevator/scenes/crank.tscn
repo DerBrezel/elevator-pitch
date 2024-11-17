@@ -20,11 +20,13 @@ mesh_highlight = NodePath("MeshHighlight")
 shape = SubResource("BoxShape3D_p27qm")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_oc3qn")
 surface_material_override/0 = ExtResource("3_w4lhc")
 
 [node name="MeshHighlight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+visible = false
 layers = 2
 mesh = SubResource("BoxMesh_t0lku")
 surface_material_override/0 = ExtResource("4_124pd")

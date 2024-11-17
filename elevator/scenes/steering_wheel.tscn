@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bseyy16mkk7x8"]
+
+[ext_resource type="PackedScene" uid="uid://cr7vgcncplgkl" path="res://elevator/steering_wheel/source/Wheel.fbx" id="1_bc80q"]
+
+[sub_resource type="Animation" id="Animation_qobwf"]
+resource_name = "crank"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="Animation" id="Animation_nsjdj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s6kmf"]
+_data = {
+"RESET": SubResource("Animation_nsjdj"),
+"crank": SubResource("Animation_qobwf")
+}
+
+[node name="SteeringWheel" type="Node3D"]
+
+[node name="Wheel" parent="." instance=ExtResource("1_bc80q")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s6kmf")
+}
