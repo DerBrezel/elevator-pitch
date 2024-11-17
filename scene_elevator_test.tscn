@@ -53,7 +53,7 @@ text = "state:"
 script = ExtResource("8_wlwx0")
 
 [node name="ElevatorDoorLight" parent="." instance=ExtResource("6_1465r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287194, 0.591241, -1.05647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.287194, -2.5687, -1.05647)
 
 [node name="ElevatorAsset" parent="." instance=ExtResource("10_x0dac")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.501, 0.63)

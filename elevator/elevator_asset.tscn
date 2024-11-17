@@ -1,13 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvmylqt8wdnhd"]
+[gd_scene load_steps=4 format=3 uid="uid://cvmylqt8wdnhd"]
 
 [ext_resource type="PackedScene" uid="uid://bfweulgvjol77" path="res://assets/elevator-low-poly-animated/source/Elevator.glb" id="1_eggyu"]
+[ext_resource type="Script" path="res://elevator/scripts/elevator_asset.gd" id="1_wloee"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yl08j"]
 
 [node name="ElevatorAsset" type="Node3D"]
+script = ExtResource("1_wloee")
 
 [node name="Elevator" parent="." instance=ExtResource("1_eggyu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0746891, 1.72188, 0.00883873)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875926, 1.65021)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_yl08j")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 
 [editable path="Elevator"]
