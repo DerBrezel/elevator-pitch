@@ -2,7 +2,7 @@ extends Node
 
 const CHARGE_MULT := 1.0
 var charge := 0.0
-var goal := 1.0
+var goal := 1
 
 var machine : StateMachine
 

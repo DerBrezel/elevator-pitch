@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b63pbsjgqmtr2"]
+[gd_scene load_steps=13 format=3 uid="uid://b63pbsjgqmtr2"]
 
 [ext_resource type="PackedScene" uid="uid://bmi7jlbkl0c07" path="res://core/sate_machine.tscn" id="1_4hve4"]
 [ext_resource type="Script" path="res://core/scripts/debug_input.gd" id="1_63vh8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://elevator/scenes/ui_label_debug_state.gd" id="8_wlwx0"]
 [ext_resource type="PackedScene" uid="uid://cvmylqt8wdnhd" path="res://elevator/elevator_asset.tscn" id="10_x0dac"]
 [ext_resource type="AudioStream" uid="uid://bbau3vr36vxhc" path="res://assets/Brazilian Bossa Nova Jazz Podcast.mp3" id="11_hmmat"]
+[ext_resource type="PackedScene" uid="uid://dgx6gq6aww028" path="res://character/billy.tscn" id="12_uog7s"]
 
 [node name="World" type="Node3D"]
 
@@ -61,3 +62,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.
 stream = ExtResource("11_hmmat")
 volume_db = 8.0
 autoplay = true
+
+[node name="Billy" parent="." instance=ExtResource("12_uog7s")]

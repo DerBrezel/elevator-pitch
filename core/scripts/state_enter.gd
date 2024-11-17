@@ -4,7 +4,7 @@ class_name EnterState
 var is_finished : bool
 
 func enter():
-	is_finished = true
+	is_finished = false
 	pass
 
 func update(delta: float) -> void:
