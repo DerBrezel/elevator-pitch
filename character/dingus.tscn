@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://b71jtuc5ttv2f"]
+
+[ext_resource type="PackedScene" uid="uid://bm47mdomhdech" path="res://character/dingus2.blend" id="1_ceymn"]
+
+[node name="dingus2" instance=ExtResource("1_ceymn")]
+
+[node name="limbs_001" parent="." index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/position = Vector3(-0.108169, 4.03897e-28, -0.693361)
+bones/1/rotation = Quaternion(-0.697755, -0.11462, -0.11462, 0.697755)
+bones/2/rotation = Quaternion(2.97065e-22, -3.01084e-20, 1.42109e-14, 1)
+bones/6/position = Vector3(0.189627, 0.414889, 0.365335)
+bones/6/rotation = Quaternion(0.133947, 0.666614, 0.721115, -0.132952)
+bones/7/position = Vector3(-0.193575, 0.414217, 0.373661)
+bones/7/rotation = Quaternion(-0.156862, 0.663246, 0.716066, 0.150825)
+bones/8/rotation = Quaternion(-1.32693e-08, -3.57698e-08, 0.871534, -0.490335)
+bones/10/rotation = Quaternion(-1.97729e-08, -3.617e-08, 0.0909614, 0.995854)
+bones/13/rotation = Quaternion(-1.97729e-08, 3.617e-08, -0.0909614, 0.995854)
+bones/14/rotation = Quaternion(-0.00140404, 0.0252102, 0.999681, -0.000893806)
+bones/15/rotation = Quaternion(-0.0502829, 1.25104e-05, -0.00297787, 0.998731)
+bones/16/rotation = Quaternion(0.00140404, 0.0252102, 0.999681, 0.000893776)
+bones/17/rotation = Quaternion(-0.050283, -1.25088e-05, 0.00297789, 0.998731)
+
+[node name="head_001" parent="." index="3"]
+visible = false
+
+[node name="torso_001" parent="." index="4"]
+visible = false
+
+[node name="limbs_002" parent="." index="5"]
+visible = false
+
+[node name="feet_001" parent="." index="6"]
+visible = false
+
+[node name="mouth_001" parent="." index="7"]
+visible = false
+
+[node name="pupils_001" parent="." index="8"]
+visible = false
+
+[node name="eyes_001" parent="." index="9"]
+visible = false
+
+[node name="limbs_003" parent="." index="10"]
+visible = false

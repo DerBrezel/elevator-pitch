@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://br26srymvf3dg"]
 
 [sub_resource type="Environment" id="Environment_ofwjm"]
+background_energy_multiplier = 0.0
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.0
